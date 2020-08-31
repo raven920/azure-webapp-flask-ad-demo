@@ -1,0 +1,34 @@
+<div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        {% if session['user'] %}
+        {% if 'Superduperadministrador' in session['user']['roles'] %}
+        <li class="nav-item">
+            <a class="nav-link" href="/nav/admin">Administrar</a>
+        </li>
+        {% endif %}
+        {% if 'ElMejorCliente' in session['user']['roles'] %}
+        <li class="nav-item">
+            <a class="nav-link" href="/nav/shop">Comprar</a>
+        </li>
+        {% endif %}
+        {% if 'Reciclador' in session['user']['roles'] %}
+        <li class="nav-item">
+            <a class="nav-link" href="/nav/recycle">Reciclaje</a>
+        </li>
+        {% endif %}
+        {% endif %}
+    </ul>
+
+    {% if not session['user'] %}
+    <div class="my-2 my-lg-0">
+        <a href='/auth/login' type="button" class="btn btn-success my-2 my-sm-0">Ingresar</a>
+    </div>
+    {% else %}
+    <div class="my-2 my-lg-0">
+        <a href='/auth/logout' type="button" class="btn btn-danger my-2 my-sm-0">Salir</a>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-3">Bienvenido a La Mejor WebApp!</h1>
+    <br>
+    <p class="lead">Esta es una página de bienvenida, ¿¿¿que más esperabas, un lorem ipsum???. </p>
+
+    {% if not session['user'] %}
+    <p class="text-success">Para iniciar sesión haga click en el botón arriba a la derecha.</p>
+    {% endif %}
+
+    <hr class="my-4">
+    <p class="lead">Pues que venga el Lorem Ipsum. </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada sed tellus in varius. Mauris malesuada diam
+    id felis dapibus posuere. Quisque in ornare lorem. Nunc a neque consequat, finibus orci mattis, ornare ex. Sed
+    pretium odio venenatis est iaculis, eget placerat augue pretium. Pellentesque libero sem, porttitor nec interdum
+    non, lacinia ac felis. Nulla imperdiet ipsum eget tellus ullamcorper fringilla. Vestibulum ut accumsan sapien. Duis
+    convallis tortor non felis bibendum lacinia. Etiam nec molestie turpis. Phasellus egestas lacinia ex, eu lobortis
+    ante porta pharetra. Cras in pretium nunc, in pretium leo. Mauris nec lectus ligula. Praesent ultricies magna sit
+    amet tortor feugiat, non laoreet metus laoreet. Aliquam a sem tincidunt, tincidunt dui sit amet, pharetra quam.
+    Aliquam vel eros nec lacus laoreet auctor.
+
+    Phasellus massa est, aliquet eu nisl ac, convallis mattis eros. Etiam vitae metus pretium, iaculis augue sit amet,
+    mollis urna. Morbi accumsan justo eu tempus tristique. Donec rhoncus, dui ut dictum ultrices, elit neque consequat
+    elit, sit amet pellentesque ante ante ut sapien. Nam viverra non nibh at tempus. Interdum et malesuada fames ac ante
+    ipsum primis in faucibus. Mauris et convallis erat, eu dapibus sem. Integer non neque purus. Morbi quis erat
+    consequat ligula sollicitudin faucibus et luctus augue.
+
+    Curabitur ut elementum ipsum. Donec non est sit amet nisl malesuada fringilla. Praesent feugiat finibus quam, in
+    blandit augue posuere ac. Morbi luctus erat id molestie venenatis. Curabitur tempor tincidunt augue id euismod.
+    Pellentesque a eros sapien. Etiam maximus augue ante, at porttitor tortor malesuada sit amet. Proin ac pharetra
+    turpis, sed aliquam enim. Donec id diam ac enim tincidunt vehicula rhoncus in arcu. Vestibulum euismod mauris at
+    sapien pellentesque tempor.
+
+    Integer tincidunt a nunc et vehicula. Morbi scelerisque ipsum sem. Cras dapibus lacus at risus cursus, eu pulvinar
+    ante maximus. Sed nec nibh eget sem sagittis malesuada. Praesent sed diam ut nulla ultricies porta vel quis urna.
+    Aliquam erat volutpat. Aenean varius mattis nisi, sit amet ullamcorper nisl vulputate vitae. Curabitur rutrum a nisl
+    et feugiat. Ut vitae commodo augue. Donec sed metus sit amet dui ornare ultricies. Cras molestie tincidunt accumsan.
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent posuere suscipit
+    lacus, a gravida ligula finibus a. Sed massa arcu, semper at sodales aliquet, sollicitudin ut turpis. Nullam porta,
+    lectus ac fringilla tincidunt, mi magna aliquet purus, a facilisis augue erat id odio.
+
+    Curabitur laoreet, dui in ullamcorper aliquam, sapien elit elementum nisi, sit amet sodales est augue nec quam. Sed
+    consequat volutpat risus sed tincidunt. Nulla id orci et enim commodo finibus nec ac ipsum. Sed condimentum
+    scelerisque purus, in scelerisque risus tempus ultricies. Sed vel pharetra odio. Maecenas congue id sapien vitae
+    sollicitudin. Duis tempus ligula at condimentum tincidunt.</p>
+</div>
+{% endblock %}
