@@ -23,10 +23,10 @@ ENDPOINT = os.environ.get("ENDPOINT")  # This resource requires no admin consent
 
 # You can find the proper permission names from this document
 # https://docs.microsoft.com/en-us/graph/permissions-reference
-SCOPE = os.environ.get("SCOPE")
+SCOPE = [os.environ.get("SCOPE")]
 
 SESSION_TYPE = os.environ.get("SESSION_TYPE")  # Specifies the token cache should be stored in server-side session
 
 if None in (CLIENT_ID, CLIENT_SECRET, AUTHORITY, REDIRECT_PATH,
-    ENDPOINT, SCOPE, SESSION_TYPE):
+    ENDPOINT, SESSION_TYPE) or len(SCOPE) == 0:
     raise Exception("You are lacking a few environment variables needed to run")
