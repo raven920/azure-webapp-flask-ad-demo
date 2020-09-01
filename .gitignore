@@ -1,7 +1,7 @@
 webappdeploy.sh
-lamejorwebapp/app_config.py
 flask_session/
 .azure
+.env
 
 
 
