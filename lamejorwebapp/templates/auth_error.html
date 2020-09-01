@@ -6,5 +6,7 @@
     <br>
     <br>
     <p class="lead">Algo no salió bien iniciando sesión, ¿tal vez lo cancelaste?. 🤔 </p>
+    <p class="lead">{{ result.get("error") }}</p>
+    <p class="text-danger">{{ result.get("error_description") }}</p>
 </div>
 {% endblock %}

@@ -1,12 +1,13 @@
 import uuid
+import functools
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 )
-
-from lamejorwebapp.utils import _build_auth_url, _load_cache, _build_msal_app, _save_cache
+from lamejorwebapp.utils import (
+    _build_auth_url, _load_cache, _build_msal_app, _save_cache, _get_token_from_cache
+)
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
-
 
 @bp.route("/login")
 def login():
@@ -20,6 +21,11 @@ def logout():
     return redirect(  # Also logout from your tenant's web session
         current_app.config["AUTHORITY"] + "/oauth2/v2.0/logout" +
         "?post_logout_redirect_uri=" + url_for("index", _external=True))
+
+@bp.route("/relogin")
+def relogin():
+    session.clear()  # Wipe out user and its token cache from session
+    return redirect(url_for("auth.login"))
 
 
 @bp.route("/getAToken")  # Its absolute URL must match your app's redirect_uri set in AAD
@@ -39,3 +45,13 @@ def authorized():
         session["user"] = result.get("id_token_claims")
         _save_cache(cache)
     return redirect(url_for("index"))
+
+
+def refresh_session(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        result = _get_token_from_cache(current_app.config["SCOPE"])
+        if not result: #Cerramos la sesión
+            session.clear()
+        return view(**kwargs)
+    return wrapped_view

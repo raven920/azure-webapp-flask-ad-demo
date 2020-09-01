@@ -1,7 +1,9 @@
 from flask import Flask, render_template, session
 from flask_session import Session
 from lamejorwebapp import app_config
+from lamejorwebapp.blueprints.auth import refresh_session
 from werkzeug.middleware.proxy_fix import ProxyFix
+
 
 
 def create_app(test_config=None):
@@ -17,6 +19,7 @@ def create_app(test_config=None):
     app.register_blueprint(nav.bp)
 
     @app.route("/")
+    @refresh_session
     def index():
         return render_template("index.html" )
 

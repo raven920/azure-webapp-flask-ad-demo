@@ -34,4 +34,4 @@ def _get_token_from_cache(scope=None):
     if accounts:  # So all account(s) belong to the current signed-in user
         result = cca.acquire_token_silent(scope, account=accounts[0])
         _save_cache(cache)
-        return result        
+        return result    
