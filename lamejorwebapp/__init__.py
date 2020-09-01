@@ -3,6 +3,7 @@ from flask_session import Session
 from lamejorwebapp import app_config
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
