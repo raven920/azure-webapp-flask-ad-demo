@@ -1,4 +1,6 @@
 #FOR INFO REGARDING THIS ENV VARIABLES CHECK "lamejorwebapp/app_config.py"
+
+
 #fill in your Azure AD APP info:
 
 CLIENT_ID="" 
